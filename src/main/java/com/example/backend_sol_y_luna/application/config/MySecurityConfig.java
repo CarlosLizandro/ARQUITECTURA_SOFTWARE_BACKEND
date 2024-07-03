@@ -26,8 +26,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl userDetailsServiceImpl;
 
-    @Autowired
-    private JwtAuthenticationFilter jwtAuthenticationFilter;
+
 
     @Override
     @Bean
@@ -61,6 +60,5 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }
